@@ -1,0 +1,32 @@
+package com.example.demo.customerservice;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.customer.CustomerDetails;
+import com.example.demo.customerrespostiry.Repository;
+@Service
+
+public class CustomerService {
+	@Autowired
+	public Repository rrepo;
+	public CustomerDetails saveInfo(CustomerDetails c)
+	{
+		return rrepo.save(c);
+	}
+	public List<CustomerDetails> getInfo()
+	{
+		return rrepo.findAll();
+	}
+	public CustomerDetails updateInfo(CustomerDetails iu)
+	{
+		return rrepo.saveAndFlush(iu);
+	}
+	public void deleteInfo(int id)
+	{
+		rrepo.deleteById(id);
+	}
+
+}
