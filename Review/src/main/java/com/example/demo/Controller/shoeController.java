@@ -106,5 +106,15 @@ public void updateQue(@PathVariable("pid")int pid,@PathVariable("pname") String 
 {
 	ir.updateByQuery(pid, pname);
 }
+@GetMapping("jp")
+public List<shoeModel> jplQuery()
+{
+	return ir.jpqlQ();
+}
+@GetMapping("/upp/{id}")
+public List<shoeModel> jpqUp(@PathVariable ("id") int id)
+{
+	return ir.jqBYCon(id);
+}
 
 }
